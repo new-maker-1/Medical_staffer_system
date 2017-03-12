@@ -1,6 +1,4 @@
 class Site < ActiveRecord::Base
-  has_many  :events
-  def self.search(search)
-    where("hospital_name LIKE ?","%#{search}%")
-  end
+  attr_accessor :hospital_name
+  has_many  :shifts
 end

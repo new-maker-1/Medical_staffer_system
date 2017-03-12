@@ -24,15 +24,7 @@ module RailsDevisePundit
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.to_prepare do
-      # Configure single controller layout
-      Devise::SessionsController.layout "standard"
-      Devise::SessionsController.layout "standard"
-      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "standard" }
-      Devise::ConfirmationsController.layout "standard"
-      Devise::UnlocksController.layout "standard"
-      Devise::PasswordsController.layout "standard"
-    end
+
 
 
   end

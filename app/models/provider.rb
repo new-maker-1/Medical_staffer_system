@@ -1,7 +1,4 @@
 class Provider < ActiveRecord::Base
-  has_many  :events
-  #has_many  :users
-  def self.search(search)
-    where("first_name LIKE ?","%#{search}%")
-  end
+  #has_paper_trail
+  has_many  :shifts
 end

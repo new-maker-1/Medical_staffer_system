@@ -3,18 +3,7 @@ class SitesController < ApplicationController
 
   # GET /sites
   def index
-    @sites=Site.all
-    if params[:search]
-      @sites = Site.search(params[:search]).order("created_at DESC")
-    else
-      @sites=Site.all.order("created_at DESC")
-    end
-    respond_to do |format|
-      format.html
-      format.xlsx {
-        response.headers['Content-Disposition'] = 'attachment; filename="all_sites.xlsx"'
-      }
-    end
+    @sites = Site.all
   end
 
   # GET /sites/1
@@ -64,6 +53,6 @@ class SitesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def site_params
-      params.require(:site).permit(:id, :hospital_name, :address,:city, :phone_number, :fax_number, :po_box, :contacts_name, :contacts_description, :contacts_phone_number, :contacts_email, :contacts_send, :contacts_schedule, :certification_requirements,  :housing_info, :status_options, :dwc_contact_staff, :affiliation, :billing_address,:access_id, :microstaffer_id)
+      params.require(:site).permit(:id, :hospital_name, :address, :phone_number, :fax_number, :po_box, :contacts_name, :contacts_description, :contacts_phone_number, :contacts_email, :contacts_send, :contacts_schedule, :certification_requirements,  :housing_info, :status_options, :dwc_contact_staff, :affiliation, :billing_address,:access_id, :microstaffer_id)
     end
 end
