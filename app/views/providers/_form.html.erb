@@ -37,7 +37,7 @@
 
     <div class="field">
       <%= f.label :salutation, :class =>"col-md-4" %>
-      <%= f.text_field :salutation %>
+      <%= f.select :salutation,[['Dr',1],['Mr',2],['Mrs',3],['Dr and Mrs',4],['Mr and Mrs',5]] %>
     </div>
 
     <div class="field">
@@ -58,7 +58,7 @@
     <div class="form-group col-md-6">
     <div class="field">
       <%= f.label :status , :class =>"col-md-4"%>
-      <%= f.text_field :status %>
+      <%= f.select :status,[['Active','Active'],['Inactive','Inactive'],['P','P'],['P1','P'],['DQ','DQ'],['S','S']]%>
     </div>
 
     <div class="field">
@@ -68,12 +68,12 @@
 
     <div class="field">
       <%= f.label :date_birth , :class =>"col-md-4"%>
-      <%= f.text_field :date_birth %>
+      <%= f.datetime_select :date_birth %>
     </div>
 
     <div class="field">
       <%= f.label :gender , :class =>"col-md-4"%>
-      <%= f.text_field :gender %>
+      <%= f.select :gender,[['Male','Male'],['Female','Female']]%>
     </div>
 
     <div class="field">
@@ -118,7 +118,7 @@
   <div class="form-group col-md-12" >
     <div class="field">
       <%= f.label :regidency , :class =>"col-md-4"%>
-      <%= f.text_field :regidency %>
+      <%= f.select :regidency,[['Yes','Yes'],['No','No'],['Pending','Pending'],['TBD','TBD']] %>
     </div>
     <div class="field">
       <%= f.label :regidency_address, :class =>"col-md-4" %>

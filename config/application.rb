@@ -8,7 +8,8 @@ Bundler.require(*Rails.groups)
 
 module RailsDevisePundit
   class Application < Rails::Application
- #   config.assets.initialize_on_precompile = false
+   config.assets.initialize_on_precompile = false
+
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,

@@ -6,6 +6,7 @@
 
 .info-tab {
     border-bottom: 2px solid #43a9e4;
+    margin-bottom: 0px;
 }
 .info-tab span.title {
     background: #43a9e4;

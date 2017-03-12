@@ -28,16 +28,42 @@
         </div>
         <div class="col-md-10 custom-header">
         <ul id="" class="nav navbar-nav navbar-right">
-          <li id="" class=""><%= link_to 'SCHEDULING', home_index_path %></li>
-          <li id="" class="active"><%= link_to 'PROVIDERS', providers_path %></li>
-          <li id="" class=""><%= link_to 'SITES', sites_path %></li>
-          <li id="" class=""><%= link_to 'REPORTS', page_path('reports') %></li>
+          <%if current_user.try(:admin?)%>
+              <li id="" class=""><%= link_to 'SCHEDULING', home_index_path %></li>
+              <li id="" class="active"><%= link_to 'PROVIDERS', providers_path %></li>
+              <li id="" class=""><%= link_to 'SITES', sites_path %></li>
+              <li id="" class=""><%= link_to 'REPORTS', page_path('reports') %></li>
+              <li id="" class=""><%= link_to 'HISTORY',provider_path('history') %></li>
+          <%end%>
+          <%if current_user.try(:vip?)%>
+              <li id="" class=""><%= link_to 'SCHEDULING', home_index_path %></li>
+              <li id="" class="active"><%= link_to 'PROVIDERS', providers_path %></li>
+              <li id="" class=""><%= link_to 'SITES', sites_path %></li>
+              <li id="" class=""><%= link_to 'REPORTS', page_path('reports') %></li>
+              <li id="" class=""><%= link_to 'HISTORY',provider_path('history') %></li>
+          <%end%>
+          <%if current_user.try(:user?)%>
+              <li id="" class=""><%= link_to 'SCHEDULING', home_index_path %></li>
+              <li id="" class="active"><%= link_to 'PROVIDERS', providers_path %></li>
+              <li id="" class=""><%= link_to 'SITES', sites_path %></li>
+              <li id="" class=""><%= link_to 'REPORTS', page_path('reports') %></li>
+              <li id="" class=""><%= link_to 'HISTORY',provider_path('history') %></li>
+          <%end%>
         </ul>
         </div>
       </div>
       </div>
       <div class="container">
        <%= render 'layouts/messages' %>
+      </div>
+
+      <div class="container">
+        <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <%= value.html_safe %>
+            </div>
+        <% end %>
       </div>
        <%= yield %>
       <div id='remote_container'></div>

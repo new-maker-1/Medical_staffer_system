@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 
 gem 'jbuilder', '~> 2.5'
+gem 'diffy'
 group :development, :test do
   gem 'byebug', platform: :mri
 end
@@ -57,8 +58,9 @@ group :test do
 end
 
 #gem 'bcrypt', :group => :production
-
+gem 'rubyzip',  "~> 0.9.9"
 gem "binding_of_caller"
 gem 'paper_trail'
 gem 'simple_form'
 gem 'axlsx_rails'
+gem 'roo'

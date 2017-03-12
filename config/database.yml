@@ -36,7 +36,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: d7fdijq4levd6h
+  database: de9i87gdf8lh5p
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -59,9 +59,9 @@ test:
 #
 production:
   <<: *default
-  host: ec2-54-243-185-99.compute-1.amazonaws.com
-  url: postgres://ceyofbvggnncam:98af5e2333c9a084aca415141240a28f8a3ff6adb235da3ecb37845fa328c113@ec2-54-243-185-99.compute-1.amazonaws.com:5432/d7fdijq4levd6h
-  database: d7fdijq4levd6h
-  username: ceyofbvggnncam
-  password: 98af5e2333c9a084aca415141240a28f8a3ff6adb235da3ecb37845fa328c113
+  host: ec2-23-21-213-202.compute-1.amazonaws.com
+  url: postgres://udkchjklwaibvz:6fe9c6619d87afc2e449ad31163e7e108e5e5ee11989c3dd38d24c0d12f4cf21@ec2-23-21-213-202.compute-1.amazonaws.com:5432/de9i87gdf8lh5p
+  database: de9i87gdf8lh5p
+  username: udkchjklwaibvz
+  password: 6fe9c6619d87afc2e449ad31163e7e108e5e5ee11989c3dd38d24c0d12f4cf21
   port: 5432

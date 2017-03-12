@@ -1,21 +1,58 @@
 <%= simple_form_for @event, remote: true do |f| %>
-  <div class="form-inputs">
-    <%= f.input :provider_id,collection: Provider.all,prompt: :last_name%>
-    <%= f.input :site_id,collection: Site.all,prompt: :hospital_name %>
-    <%= f.input :title %>
-    <%= f.input :date_range, input_html: { class: "form-control input-sm date-range-picker" } %>
-    <%= f.input_field :start, as: :hidden, value: Date.today, class: 'form-control input-sm start_hidden' %>
-    <%= f.input_field :end, as: :hidden, value: Date.today, class: 'form-control input-sm end_hidden' %>
-    <%= f.input :status,as: :select,collection: [['Active',1],['Deactive',2]]%>
-    <%= f.input :hide_from_schedule,as: :text%>
-    <%= f.input :custom_pay_rate,as: :integer%>
-    <%= f.input :custom_bill_rate,as: :integer%>
-    <%= f.input :area ,as: :text%>
-    <%= f.input :note%>
-    <%= f.input :filledon%>
-    <%= f.input :access_id, as: :integer%>
-    <%= f.input :last_modified_by_x_on_y%>
-    <%= f.input :color, as: :select, collection: [['Black','black'], ['Green','green'], ['Red','red']] %>
+  <div class="row">
+    <div class="form-group">
+      <%= f.input :title %>
+    </div>
+    <div class="form-group">
+      <div class="col-md-6"><%= f.input :provider_id,collection: Provider.all,prompt: :last_name%></div>
+      <div  class="col-md-6"><%= f.input :site_id,collection: Site.all,prompt: :hospital_name %></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-6">
+        <%= f.input :date_range, input_html: { class: "form-control input-sm date-range-picker" } %>
+        <%= f.input_field :start, as: :hidden, value: Date.today, class: 'form-control input-sm start_hidden' %>
+        <%= f.input_field :end, as: :hidden, value: Date.today, class: 'form-control input-sm end_hidden' %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :status,as: :select,collection: [['Active',1],['Deactive',2]]%>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <div class="col-md-3">
+        <%= f.input :hide_from_schedule,as: :text%>
+      </div>
+      <div class="col-md-3">
+        <%= f.input :custom_pay_rate,as: :integer%>
+      </div>
+      <div class="col-md-3">
+        <%= f.input :custom_bill_rate,as: :integer%>
+      </div>
+      <div class="col-md-3">
+        <%= f.input :area ,as: :text%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :note%>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-3">
+        <%= f.input :filledon%>
+      </div>
+      <div class="col-md-3">
+        <%= f.input :access_id, as: :integer%>
+      </div>
+      <div class="col-md-3">
+        <%= f.input :last_modified_by_x_on_y%>
+      </div>
+      <div class="col-md-3">
+        <%= f.input :color, as: :select, collection: [['Black','black'], ['Green','green'], ['Red','red']] %>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions">

@@ -7,6 +7,8 @@
     </div>
 
   <div class="right">
+    <%if current_user.try(:admin?)%>
+    <% end %>
     <%= link_to 'ADD PROVIDER', new_provider_path, :class=>"btn btn-custom pull-right" , :style=>"margin-left:10px;"%>
     <%= link_to 'FILTER', new_provider_path, :class=>"btn btn-custom pull-right" , :style=>"margin-left:10px;"%>
   </div>
@@ -30,20 +32,47 @@
           <tbody>
           <% @providers.each do |provider| %>
               <tr>
-                <td><span style="color: #8dc63f;" class="glyphicon glyphicon-ok-sign"></span></td>
+
+                <% if provider.status=="Active"%>
+                    <td><span style="color: #8dc63f;" class="glyphicon glyphicon-ok-sign"></span></td>
+                <% else %>
+                    <td><span style="color: #ad2011;" class="glyphicon glyphicon-minus-sign"></span></td>
+                <% end %>
+
                 <td><%= link_to provider.first_name, provider %> "<%= link_to provider.preferred_name, provider %>" <%= link_to provider.last_name, provider %>, <%= provider.salutation %>  </td>
 
                 <td><%= provider.email %></td>
                 <td><%= provider.phone_number %></td>
 
+                <%if current_user.try(:admin?)%>
+                    <td><%= link_to 'Show', provider %></td>
+                    <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
+                    <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
 
-                <td><%= link_to 'Show', provider %></td>
-                <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-                <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <%if current_user.try(:vip?)%>
+                    <td><%= link_to 'Show', provider %></td>
+                    <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
+                    <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
+
+                <%if current_user.try(:user?)%>
+                    <td><%= link_to 'Show', provider %></td>
+                    <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
+                    <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
               </tr>
           <% end %>
           </tbody>
         </table>
+      <div>
+      <%= form_tag import_providers_path, multipart: true do %>
+          <%= file_field_tag :file , class: "form-control btn btn-custom",style:"margin-top:15px" %>
+        <%= submit_tag "Import CSV" ,class: "btn btn-primary",style:"margin-top:15px"%>
+
+      <% end %>
+      </div>
+
     </div>
 </div>
 
