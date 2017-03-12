@@ -28,6 +28,11 @@
       <%= f.text_field :address %>
     </div>
 
+      <div class="field">
+        <%= f.label :city , :class =>"col-md-5" %>
+        <%= f.text_field :city %>
+      </div>
+
 
     </div>
     <div class="form-group col-md-6">
@@ -97,7 +102,7 @@
 
     <div class="field">
       <%= f.label :status_options , :class =>"col-md-5"%>
-      <%= f.text_field :status_options %>
+      <%= f.select :status_options,[['Active',1],['Inactive',2],['P',3],['P1',4],['DQ',5],['S',6]],:style=>"width:185px;height:27px;" %>
     </div>
 
 

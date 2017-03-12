@@ -3,14 +3,25 @@ class ProvidersController < ApplicationController
 
   # GET /providers
   def index
-    @providers = Provider.all
+    @providers=Provider.all
+    if params[:search]
+      @providers = Provider.search(params[:search]).order("created_at DESC")
+    else
+      @providers=Provider.all.order("created_at DESC")
+    end
+
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = 'attachment; filename="all_providers.xlsx"'
+      }
+    end
+
+
   end
 
   # GET /providers/1
   def show
-
-
-
   end
 
   # GET /providers/new
@@ -54,8 +65,8 @@ class ProvidersController < ApplicationController
       @provider = Provider.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
-    def provider_params
-      params.require(:provider).permit(:id,:last_name, :first_name, :preferred_name, :middle_name, :salutation, :address, :email, :phone_number, :status, :ssn, :date_birth, :gender, :spouse_name, :place_birth,  :superviser,  :hiredate, :termination_date, :regidency, :regidency_address, :regidency_degree, :regidency_dates, :medical_education, :medical_education_city,  :pre_med_education, :pre_med_education_city, :pre_med_degree, :pre_med_dates, :initial_contact_date,  :application_received_date, :cv_received_date, :interview_date, :date_verification, :verification_completion_date,  :recertification_request_date, :recertification_completion_date,  :active_referral_options,  :date_hired, :referredby, :first_shift_date, :referral_paid_date, :amount, :notes, :referral_code,  :access_id, :microstaffer_id)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def provider_params
+    params.require(:provider).permit(:id,:last_name, :first_name, :preferred_name, :middle_name, :salutation, :address, :email, :phone_number, :status, :ssn, :date_birth, :gender, :spouse_name, :place_birth,  :superviser,  :hiredate, :termination_date, :regidency, :regidency_address, :regidency_degree, :regidency_dates, :medical_education, :medical_education_city,  :pre_med_education, :pre_med_education_city, :pre_med_degree, :pre_med_dates, :initial_contact_date,  :application_received_date, :cv_received_date, :interview_date, :date_verification, :verification_completion_date,  :recertification_request_date, :recertification_completion_date,  :active_referral_options,  :date_hired, :referredby, :first_shift_date, :referral_paid_date, :amount, :notes, :referral_code,  :access_id, :microstaffer_id)
+  end
 end

@@ -10,18 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307171746) do
+ActiveRecord::Schema.define(version: 20170306042949) do
 
-
-  create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.string   "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "provider_id"
+    t.integer  "site_id"
+    t.string   "title"
+    t.datetime "start"
+    t.datetime "end"
+    t.text     "status",                  limit: 65535
+    t.text     "hide_from_schedule",      limit: 65535
+    t.float    "custom_pay_rate",         limit: 24
+    t.float    "custom_bill_rate",        limit: 24
+    t.string   "area",                    limit: 32
+    t.text     "note",                    limit: 65535
+    t.string   "filledon",                limit: 32
+    t.string   "create_on",               limit: 32
+    t.integer  "access_id"
+    t.string   "last_modified_by_x_on_y", limit: 32
+    t.string   "color"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
-  create_table "providers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "providers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "rails"
     t.string   "last_name",                       limit: 32
     t.string   "first_name",                      limit: 32
     t.string   "preferred_name",                  limit: 32
@@ -70,9 +83,32 @@ ActiveRecord::Schema.define(version: 20170307171746) do
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
   end
-  create_table "sites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "hospital_name",              limit: 32
-    t.string   "address",                    limit: 32
+
+  create_table "shifts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "provider_id"
+    t.integer  "site_id"
+    t.datetime "date"
+    t.text     "shift",                   limit: 65535
+    t.datetime "start_time"
+    t.datetime "start_end"
+    t.text     "status",                  limit: 65535
+    t.text     "hide_from_schedule",      limit: 65535
+    t.float    "custom_pay_rate",         limit: 24
+    t.float    "custom_bill_rate",        limit: 24
+    t.string   "area",                    limit: 32
+    t.text     "note",                    limit: 65535
+    t.string   "filledon",                limit: 32
+    t.string   "create_on",               limit: 32
+    t.integer  "access_id"
+    t.string   "last_modified_by_x_on_y", limit: 32
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  create_table "sites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "hospital_name",              limit: 64
+    t.string   "address",                    limit: 64
+    t.string   "city",                       limit: 64
     t.text     "phone_number",               limit: 65535
     t.text     "fax_number",                 limit: 65535
     t.text     "po_box",                     limit: 65535
@@ -94,27 +130,8 @@ ActiveRecord::Schema.define(version: 20170307171746) do
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
   end
-  create_table "shifts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "provider_id"
-    t.integer  "site_id"
-    t.datetime "date"
-    t.text     "shift",                   limit: 65535
-    t.datetime "start_time"
-    t.datetime "start_end"
-    t.text     "status",                  limit: 65535
-    t.text     "hide_from_schedule",      limit: 65535
-    t.float    "custom_pay_rate",         limit: 24
-    t.float    "custom_bill_rate",        limit: 24
-    t.string   "area",                    limit: 32
-    t.text     "note",                    limit: 65535
-    t.string   "filledon",                limit: 32
-    t.string   "create_on",               limit: 32
-    t.integer  "access_id"
-    t.string   "last_modified_by_x_on_y", limit: 32
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-  end
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -131,16 +148,6 @@ ActiveRecord::Schema.define(version: 20170307171746) do
     t.integer  "role"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  end
-
-  create_table "versions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string   "item_type",  limit: 191,        null: false
-    t.integer  "item_id",                       null: false
-    t.string   "event",                         null: false
-    t.string   "whodunnit"
-    t.text     "object",     limit: 4294967295
-    t.datetime "created_at"
-    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
   end
 
 end

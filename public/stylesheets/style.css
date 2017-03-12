@@ -102,6 +102,7 @@
 body {
     background: url(images/body-bg.jpg);
     font-family: verdana , Arial, Helvetica, sans-serif;
+	text-align: left;
 }
 .custom-header li a {
     padding-right: 12px;
@@ -168,4 +169,20 @@ table thead tr th {
 }
 .navbar-inverse .navbar-nav>li>a{
     color: white;
+}
+
+.authform form, .authform fieldset {
+    background: rgba(0,0,0,0.7);
+}
+#custom-sigin-button{
+    border: 2px solid #f7d035;  border-radius: 3px;  background: #f7d035;  color: #d19c18;font-weight: 700; letter-spacing: 0.5px;  text-transform: uppercase; padding: 3px 15px;
+}
+#custom-sigin-button:hover {
+    background-color: rgba(0,0,0,0.7);
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
 }

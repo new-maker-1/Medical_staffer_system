@@ -5,9 +5,9 @@
     <title><%= content_for?(:title) ? yield(:title) : "Rails Devise Pundit" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Devise Pundit" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag 'dhtmlxscheduler', media: 'all', 'data-turbolinks-track' => true %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'dhtmlxscheduler', 'data-turbolinks-track' => true %>
+
     <%= stylesheet_link_tag "style" %>
     <%= csrf_meta_tags %>
 
@@ -31,7 +31,7 @@
           <li id="" class=""><%= link_to 'SCHEDULING', home_index_path %></li>
           <li id="" class="active"><%= link_to 'PROVIDERS', providers_path %></li>
           <li id="" class=""><%= link_to 'SITES', sites_path %></li>
-          <li id="" class=""><%= link_to 'REPORTS', shifts_path %></li>
+          <li id="" class=""><%= link_to 'REPORTS', page_path('reports') %></li>
         </ul>
         </div>
       </div>
@@ -40,6 +40,7 @@
        <%= render 'layouts/messages' %>
       </div>
        <%= yield %>
+      <div id='remote_container'></div>
     </main>
 
     <div class="footer-top">&nbsp;</div>

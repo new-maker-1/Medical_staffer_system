@@ -5,7 +5,7 @@
 <head>
   <meta http-equiv = "Content-Type" content = "text/html; charset = iso-8859-1" />
   <meta http-equiv = "Content-Language" content = "en-us" />
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media:'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <title>Library Info System</title>
@@ -13,9 +13,7 @@
 </head>
 
 <body id = "library">
-<header>
-  <%= render 'layouts/navigation' %>
-</header>
+
 
 <div id = "container">
 
@@ -23,9 +21,6 @@
     <%= yield -%>
   </div>
 
-  <div id = "sidebar">
-
-  </div>
 
 </div>
 </body>

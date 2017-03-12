@@ -60,3 +60,5 @@ end
 
 gem "binding_of_caller"
 gem 'paper_trail'
+gem 'simple_form'
+gem 'axlsx_rails'

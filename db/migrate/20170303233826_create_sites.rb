@@ -1,15 +1,16 @@
 class CreateSites < ActiveRecord::Migration[5.0]
-  def up
+  def self.up
     if table_exists?(:sites)
     else
-      create_table :sites do |t|
+      create_table :sites  do |t|
         #t.integer :rails_id
         #t.integer  "rails_id"
-        t.string :hospital_name,limit: 32
-        t.string :address,limit: 32
-        t.text   :phone_number,limit: 65535
-        t.text   :fax_number ,limit: 65535
-        t.text   :po_box ,limit: 65535
+        t.string   :hospital_name,              limit: 64
+        t.string   :address,                    limit: 64
+        t.string   :city                       ,limit: 64
+        t.text   :phone_number                 ,limit: 65535
+        t.text   :fax_number                   ,limit: 65535
+        t.text   :po_box                       ,limit: 65535
         #t.string   main_phone",                 limit: 16
         #t.string   "main_fax",                   limit: 16
         #t.string   "po_box",                     limit: 16
@@ -21,7 +22,7 @@ class CreateSites < ActiveRecord::Migration[5.0]
         t.string   :contacts_schedule,          limit: 16
 
         t.text     :certification_requirements, limit: 65535
-        t.text     :notes,                  limit: 65535
+        t.text     :notes,                       limit: 65535
         #t.text     "misc_info",                  limit: 65535
         t.text   :housing_info,               limit: 65535
         t.string   :status_options,             limit: 32
@@ -43,10 +44,11 @@ class CreateSites < ActiveRecord::Migration[5.0]
         #t.string   "tags",                       limit: 16
         t.integer  :access_id
         t.integer  :microstaffer_id
+        t.timestamps null: false
       end
     end
-
-  end
-  def down
+    def self.down
+     drop_table :sites
+    end
   end
 end
