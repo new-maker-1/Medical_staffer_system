@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Rails Devise Pundit" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Devise Pundit" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+    <%= stylesheet_link_tag "style" %>
+    <%= csrf_meta_tags %>
+
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+      <div class="row" style="    background-color: #ebebeb;">
+      <div class="container header" style="margin-top: 5px;border-bottom: 1px solid #ddd;padding-bottom: 5px; box-shadow: 0 1px 0 #fff;">
+
+
+        <div class="col-md-2">
+
+            <img src="<%= image_path("logo.png") %>" style="width: 90px;">
+
+        </div>
+        <div class="col-md-10 custom-header">
+        <ul id="" class="nav navbar-nav navbar-right">
+          <li id="" class=""><%= link_to 'SCHEDULING', home_index_path %></li>
+          <li id="" class="active"><%= link_to 'PROVIDERS', providers_path %></li>
+          <li id="" class=""><%= link_to 'SITES', sites_path %></li>
+          <li id="" class=""><%= link_to 'REPORTS', page_path('reports') %></li>
+        </ul>
+        </div>
+      </div>
+      </div>
+      <div class="container">
+       <%= render 'layouts/messages' %>
+      </div>
+       <%= yield %>
+      <div id='remote_container'></div>
+    </main>
+
+    <div class="footer-top">&nbsp;</div>
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 border">
+            <h4>ADDRESS:</h4>
+            <p><strong>Robert: </strong>Home, 123 Elm Street, Des Moines, lowa, 37654.</p>
+            <h4>CONTACTS:</h4>
+            <p>Tel: + (1) 9134567890<br> Fax: + (1) 3456789</p>
+          </div>
+          <div class="col-md-4 border">
+            <h4>PROJECT INQUIRIES:</h4>
+            <p><a href="mailto:info@espace.com.eg">info@medical.staff.com</a></p>
+            <h4 style="margin-top:40px; margin-bottom:10px;">FOLLOW US:</h4>
+            <div class="clearfix">
+              <a class="facebook" href="https://www.facebook.com/eSpacian">Facebook<span></span></a>
+              <a class="twitter" href="http://twitter.com/eSpacian">Twitter<span></span></a>
+              <a class="google1" href="https://plus.google.com/u/0/115576555406057912257/posts">Google +1<span></span></a>
+
+            </div>
+          </div>
+          <div class="col-md-4  ">
+
+            <div id="mc_embed_signup" class="newsletter">
+              <h4>Medical Sttaff Newsletter</h4>
+              <form action="http://espace.us5.list-manage1.com/subscribe/post?u=efa0325705f8393b45ee30af3&amp;id=e78a524506" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+                <label for="mce-EMAIL">Subscribe to our mailing list:</label>
+                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required="">
+                <div><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+              </form>
+            </div>
+            <!--End mc_embed_signup-->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 copy">
+            <p> <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>2017  Medical Staff Technologies. All Rights Reserved. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

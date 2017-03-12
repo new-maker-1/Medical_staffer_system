@@ -1,0 +1,282 @@
+<%= form_for(provider) do |f| %>
+    <% if provider.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(provider.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+            <% provider.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="row info-tab">
+      <span class="title">Basic</span>
+    </div>
+    <div class="info-group row">
+    <div class="form-group col-md-6">
+    <div class="field">
+      <%= f.label :first_name, :class =>"col-md-4" %>
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name, :class =>"col-md-4" %>
+      <%= f.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :preferred_name , :class =>"col-md-4"%>
+      <%= f.text_field :preferred_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :middle_name , :class =>"col-md-4"%>
+      <%= f.text_field :middle_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :salutation, :class =>"col-md-4" %>
+      <%= f.text_field :salutation %>
+    </div>
+
+    <div class="field">
+      <%= f.label :address , :class =>"col-md-4"%>
+      <%= f.text_field :address %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email , :class =>"col-md-4"%>
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="field">
+      <%= f.label :phone_number, :class =>"col-md-4" %>
+      <%= f.text_field :phone_number %>
+    </div>
+    </div>
+    <div class="form-group col-md-6">
+    <div class="field">
+      <%= f.label :status , :class =>"col-md-4"%>
+      <%= f.text_field :status %>
+    </div>
+
+    <div class="field">
+      <%= f.label :ssn , :class =>"col-md-4"%>
+      <%= f.number_field :ssn %>
+    </div>
+
+    <div class="field">
+      <%= f.label :date_birth , :class =>"col-md-4"%>
+      <%= f.text_field :date_birth %>
+    </div>
+
+    <div class="field">
+      <%= f.label :gender , :class =>"col-md-4"%>
+      <%= f.text_field :gender %>
+    </div>
+
+    <div class="field">
+      <%= f.label :spouse_name , :class =>"col-md-4"%>
+      <%= f.text_field :spouse_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :place_birth, :class =>"col-md-4" %>
+      <%= f.text_field :place_birth %>
+    </div>
+
+
+
+    <div class="field">
+      <%= f.label :superviser , :class =>"col-md-4"%>
+      <%= f.text_field :superviser %>
+    </div>
+
+      <div class="clearfix"></div>
+
+    <div class="field">
+      <%= f.label :hiredate , :class =>"col-md-4"%>
+      <%= f.datetime_select :hiredate %>
+    </div>
+      <div class="clearfix"></div>
+    <div class="field">
+      <%= f.label :termination_date, :class =>"col-md-4" %>
+      <%= f.datetime_select :termination_date %>
+    </div>
+
+
+    </div>
+    </div>
+
+
+    <div class="row info-tab">
+      <span class="title">Regidency</span>
+    </div>
+
+<div class="info-group row">
+  <div class="form-group col-md-12" >
+    <div class="field">
+      <%= f.label :regidency , :class =>"col-md-4"%>
+      <%= f.text_field :regidency %>
+    </div>
+    <div class="field">
+      <%= f.label :regidency_address, :class =>"col-md-4" %>
+      <%= f.text_field :regidency_address %>
+    </div>
+
+    <div class="field">
+      <%= f.label :regidency_degree, :class =>"col-md-4" %>
+      <%= f.text_field :regidency_degree %>
+    </div>
+
+    <div class="field">
+      <%= f.label :regidency_dates, :class =>"col-md-4" %>
+      <%= f.datetime_select :regidency_dates %>
+    </div>
+  </div>
+</div>
+    <div class="row info-tab">
+      <span class="title">Education</span>
+    </div>
+
+    <div class="row info-group">
+      <div class="form-group col-md-12">
+    <div class="field">
+      <%= f.label :medical_education, :class =>"col-md-4" %>
+      <%= f.text_field :medical_education %>
+    </div>
+
+    <div class="field">
+      <%= f.label :medical_education_city, :class =>"col-md-4" %>
+      <%= f.text_field :medical_education_city %>
+    </div>
+
+
+
+
+    <div class="field">
+      <%= f.label :pre_med_education, :class =>"col-md-4" %>
+      <%= f.text_field :pre_med_education %>
+    </div>
+
+    <div class="field">
+      <%= f.label :pre_med_education_city, :class =>"col-md-4" %>
+      <%= f.text_field :pre_med_education_city %>
+    </div>
+
+    <div class="field">
+      <%= f.label :pre_med_degree, :class =>"col-md-4" %>
+      <%= f.text_field :pre_med_degree %>
+    </div>
+
+    <div class="field">
+      <%= f.label :pre_med_dates, :class =>"col-md-4" %>
+      <%= f.datetime_select :pre_med_dates, :class =>"col-md-8" %>
+    </div>
+    <div class="clearfix"></div>
+    <div class="field">
+      <%= f.label :initial_contact_date, :class =>"col-md-4" %>
+      <%= f.datetime_select :initial_contact_date, :class =>"col-md-8" %>
+    </div>
+        <div class="clearfix"></div>
+    <div class="field">
+      <%= f.label :application_received_date, :class =>"col-md-4" %>
+      <%= f.datetime_select :application_received_date, :class =>"col-md-8" %>
+    </div>
+        <div class="clearfix"></div>
+    <div class="field">
+      <%= f.label :cv_received_date, :class =>"col-md-4" %>
+      <%= f.datetime_select :cv_received_date %>
+    </div>
+        <div class="clearfix"></div>
+    <div class="field">
+      <%= f.label :interview_date, :class =>"col-md-4" %>
+      <%= f.datetime_select :interview_date %>
+    </div>
+    </div>
+    </div>
+    <div class="row info-tab">
+      <span class="title">Verification</span>
+    </div>
+    <div class="row info-group">
+      <div class="form-group col-md-12">
+    <div class="field">
+      <%= f.label :date_verification, :class =>"col-md-4" %>
+      <%= f.text_field :date_verification %>
+    </div>
+
+    <div class="field">
+      <%= f.label :verification_completion_date, :class =>"col-md-4" %>
+      <%= f.datetime_select :verification_completion_date %>
+    </div>
+        <div class="clearfix"></div>
+    <div class="field">
+      <%= f.label :recertification_request_date, :class =>"col-md-4" %>
+      <%= f.datetime_select :recertification_request_date %>
+    </div>
+        <div class="clearfix"></div>
+    <div class="field">
+      <%= f.label :recertification_completion_date, :class =>"col-md-4" %>
+      <%= f.datetime_select :recertification_completion_date %>
+    </div>
+        <div class="clearfix"></div>
+
+    <div class="field">
+      <%= f.label :active_referral_options, :class =>"col-md-4" %>
+      <%= f.text_field :active_referral_options %>
+    </div>
+        <div class="clearfix"></div>
+    <div class="field">
+      <%= f.label :date_hired, :class =>"col-md-4" %>
+      <%= f.datetime_select :date_hired %>
+    </div>
+        <div class="clearfix"></div>
+
+    <div class="field">
+      <%= f.label :referredby, :class =>"col-md-4" %>
+      <%= f.text_field :referredby %>
+    </div>
+        <div class="clearfix"></div>
+    <div class="field">
+      <%= f.label :first_shift_date, :class =>"col-md-4" %>
+      <%= f.datetime_select :first_shift_date %>
+    </div>
+        <div class="clearfix"></div>
+    <div class="field">
+      <%= f.label :referral_paid_date, :class =>"col-md-4" %>
+      <%= f.datetime_select :referral_paid_date %>
+    </div>
+        <div class="clearfix"></div>
+    <div class="field">
+      <%= f.label :amount, :class =>"col-md-4" %>
+      <%= f.number_field :amount %>
+    </div>
+
+    <div class="field">
+      <%= f.label :notes , :class =>"col-md-4"%>
+      <%= f.text_field :notes %>
+    </div>
+
+    <div class="field">
+      <%= f.label :referral_code , :class =>"col-md-4"%>
+      <%= f.text_field :referral_code %>
+    </div>
+
+
+    <div class="field">
+      <%= f.label :access_id , :class =>"col-md-4"%>
+      <%= f.number_field :access_id %>
+    </div>
+
+    <div class="field">
+      <%= f.label :microstaffer_id, :class =>"col-md-4" %>
+      <%= f.number_field :microstaffer_id %>
+    </div>
+
+    </div> </div>
+
+  <div class="actions row info-group">
+    <%= f.submit class:'btn btn-primary' %>
+  </div>
+<% end %>

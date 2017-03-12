@@ -1,0 +1,279 @@
+<div class="container" style="    margin-top: 15px;">
+  <div class="breadcrumbs">Providers &gt; Filter &gt; <%= @provider.first_name %> <%= @provider.last_name %>, <%= @provider.salutation %></div>
+  <div class="paper-trail">Last Modified by Michael Moore on 3/15/16</div>
+</div>
+<div class="container">
+
+
+
+  <div class="page-header form-group" style="    margin-top: 15px;">
+    <%= link_to 'Edit Record', edit_provider_path(@provider) , :class=>"btn btn-custom pull-right", :style=>"margin-left:10px;"  %> <%= link_to 'Back', providers_path , :class=>"btn btn-custom pull-right" , :style=>"margin-left:10px;" %>
+    <h1><%= @provider.first_name %>"<%= @provider.preferred_name %>"<%= @provider.last_name %>,<%= @provider.salutation %></h1>
+  </div>
+
+
+  <div class="form-group">
+
+
+    <div class="info-group row">
+    <div class="col-md-6">
+      <p>
+        <strong>First name:</strong>
+        <%= @provider.first_name %>
+      </p>
+      <p>
+        <strong>Last name:</strong>
+        <%= @provider.last_name %>
+      </p>
+
+
+
+      <p>
+        <strong>Preferred name:</strong>
+        <%= @provider.preferred_name %>
+      </p>
+
+      <p>
+        <strong>Middle Name:</strong>
+        <%= @provider.middle_name %>
+      </p>
+
+      <p>
+        <strong>Salutation:</strong>
+        <%= @provider.salutation %>
+      </p>
+
+      <p>
+        <strong>Address:</strong>
+        <%= @provider.address %>
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <%= @provider.email %>
+      </p>
+
+      <p>
+        <strong>Phone number:</strong>
+        <%= @provider.phone_number %>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <p>
+        <strong>Status:</strong>
+        <%= @provider.status %>
+      </p>
+
+      <p>
+        <strong>Ssn:</strong>
+        <%= @provider.ssn %>
+      </p>
+
+      <p>
+        <strong>Date birth:</strong>
+        <%= @provider.date_birth %>
+      </p>
+
+      <p>
+        <strong>Gender:</strong>
+        <%= @provider.gender %>
+      </p>
+
+      <p>
+        <strong>Spouse name:</strong>
+        <%= @provider.spouse_name %>
+      </p>
+
+      <p>
+        <strong>Place birth:</strong>
+        <%= @provider.place_birth %>
+      </p>
+
+
+
+      <p>
+        <strong>Superviser:</strong>
+        <%= @provider.superviser %>
+      </p>
+    </div>
+    </div>
+
+
+    <div class="info-group row">
+      <h4 class="console-header">Notes</h4>
+      <a id="add-note" class=""><span class="glyphicon glyphicon-plus"></span>Add Note</a>
+
+      <div id="note-wrapper">
+        <div> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+        <div class="signature">3/22/14 | <i>Flora, RMT</i></div>
+      </div>
+      <div id="note-wrapper">
+        <div> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+        <div class="signature">2/10/14 | <i>Bren, Verifications</i></div>
+      </div>
+      <div id="note-wrapper">
+        <div> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+        <div class="signature">10/23/14 | <i>Michael, Recruiting</i></div>
+      </div>
+    </div>
+
+
+
+    <div class="row info-group">
+
+<p>
+  <strong>Hiredate:</strong>
+  <%= @provider.hiredate %>
+</p>
+<p>
+  <strong>Termination date:</strong>
+  <%= @provider.termination_date %>
+</p>
+<p>
+  <strong>Regidency:</strong>
+  <%= @provider.regidency %>
+</p>
+<p>
+  <strong>Regidency address:</strong>
+  <%= @provider.regidency_address %>
+</p>
+<p>
+  <strong>Regidency degree:</strong>
+  <%= @provider.regidency_degree %>
+</p>
+<p>
+  <strong>Regidency dates:</strong>
+  <%= @provider.regidency_dates %>
+</p>
+<p>
+  <strong>Medical education:</strong>
+  <%= @provider.medical_education %>
+</p>
+<p>
+  <strong>Medical education city:</strong>
+  <%= @provider.medical_education_city %>
+</p>
+<p>
+  <strong>Pre med education:</strong>
+  <%= @provider.pre_med_education %>
+</p>
+    </div>
+    <div class="row info-group">
+<p>
+  <strong>Pre med education city:</strong>
+  <%= @provider.pre_med_education_city %>
+</p>
+
+<p>
+  <strong>Pre med degree:</strong>
+  <%= @provider.pre_med_degree %>
+</p>
+
+<p>
+  <strong>Pre med dates:</strong>
+  <%= @provider.pre_med_dates %>
+</p>
+
+<p>
+  <strong>Initial contact date:</strong>
+  <%= @provider.initial_contact_date %>
+</p>
+
+
+<p>
+  <strong>Application received date:</strong>
+  <%= @provider.application_received_date %>
+</p>
+
+
+<p>
+  <strong>Cv received date:</strong>
+  <%= @provider.cv_received_date %>
+</p>
+
+<p>
+  <strong>Interview date:</strong>
+  <%= @provider.interview_date %>
+</p>
+
+<p>
+  <strong>Date verification:</strong>
+  <%= @provider.date_verification %>
+</p>
+
+<p>
+  <strong>Verification completion date:</strong>
+  <%= @provider.verification_completion_date %>
+</p>
+
+
+<p>
+  <strong>Recertification request date:</strong>
+  <%= @provider.recertification_request_date %>
+</p>
+
+
+<p>
+  <strong>Recertification completion date:</strong>
+  <%= @provider.recertification_completion_date %>
+</p>
+
+
+
+<p>
+  <strong>Active referral options:</strong>
+  <%= @provider.active_referral_options %>
+</p>
+
+
+<p>
+  <strong>Date hired:</strong>
+  <%= @provider.date_hired %>
+</p>
+
+<p>
+  <strong>Referredby:</strong>
+  <%= @provider.referredby %>
+</p>
+
+<p>
+  <strong>First shift date:</strong>
+  <%= @provider.first_shift_date %>
+</p>
+
+<p>
+  <strong>Referral paid date:</strong>
+  <%= @provider.referral_paid_date %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @provider.amount %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @provider.notes %>
+</p>
+
+<p>
+  <strong>Referral code:</strong>
+  <%= @provider.referral_code %>
+</p>
+
+
+<p>
+  <strong>Access:</strong>
+  <%= @provider.access_id %>
+</p>
+
+<p>
+  <strong>Microstaffer:</strong>
+  <%= @provider.microstaffer_id %>
+</p>
+</div>
+  </div>
+</div>
