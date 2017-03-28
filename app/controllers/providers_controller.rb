@@ -4,13 +4,21 @@ class ProvidersController < ApplicationController
   # GET /providers
   def index
     @providers=Provider.all
-
+    @arrayList=Array.new;
     if params[:search]
       @providers = Provider.search(params[:search]).order("created_at DESC")
     else
       @providers=Provider.all.order("created_at DESC")
     end
 
+    puts "jhfdjffdfsdf"
+    #@report = Report.find_by_id(params[:id])
+
+    puts "jhfdjffdfsdf"
+    #@addcolumns = @report.module.split(",")
+    puts "kdsjfkdjflkdf"
+    #puts @addcolumns
+    @addcolumns=["last_name","first_name"]
     respond_to do |format|
       format.html
       format.xlsx {
@@ -21,6 +29,7 @@ class ProvidersController < ApplicationController
 
   # GET /providers/1
   def show
+    @version = PaperTrail::Version.order('created_at ASC').last
   end
 
   def import

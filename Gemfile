@@ -30,6 +30,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'high_voltage'
 gem 'pundit'
+gem 'tinymce-rails'
 
 group :development do
   gem 'better_errors'

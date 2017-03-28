@@ -1,44 +1,118 @@
+
+<div class="heading" style="display: none;">
+  <div class="text">Displaying</div>
+  <div class="group">
+    <select class="form-control" id="sel1">
+      <option>All Providers</option>
+      <option>Single Provider</option>
+    </select>
+  </div>
+  <div class="text">at</div>
+
+  <div class="group">
+    <select class="form-control" id="sel1">
+      <option>All Sites</option>
+      <option>Single Site</option>
+    </select>
+  </div>
+  <div class="group">
+    <select class="form-control" id="sel1">
+      <option>Between</option>
+      <option>Before</option>
+      <option>After</option>
+    </select>
+  </div>
+  <div class="group">
+    <div class="input-group date" id="datetimepicker1">
+      <input type="text" class="form-control">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+    </div>
+  </div>
+  <div class="group">
+    <div class="input-group date" id="datetimepicker2">
+      <input type="text" class="form-control">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+    </div>
+  </div>
+  <!-- <div class="text">of the following:</div> -->
+</div>
 <div class="scheduling-view">
 
-<div class="col-md-2">
-    <div class="info-hospital info-group">
-      <div class="title" style="text-align: center;">
-        <div style="font-weight: bold;width: 100%;">Baum Harmon Memorial Hospital</div>
-        <div>123 Hospital Way</div>
-        <div>Hospitaltown, KS 66062</div>
+  <div class="col-md-2">
+    <div id="site-contacts">
+      <h2>Baum Harmon Memorial Hospital</h2>
+      <p>123 Hospital Way<br>Hospitaltown, KS 456789</p>
+      <h4>Contacts</h4>
+      <div class="contact-wrapper">
+        <div class="contact">
+          <div>Jane Smith, <i>Chief Nursing Officer</i></div><div>912-234-5678</div>
+        </div>
+        <div class="contact">
+          <div>Amanda Jones, <i>CEO</i></div><div>912-234-5678</div>
+        </div>
+        <div class="contact">
+          <div>Mike Knoll, <i>Director of Nursing</i></div><div>912-234-5678</div>
+        </div>
+        <div class="contact">
+          <div>Robert McNamarra, <i>Janitor</i></div><div>912-234-5678</div>
+        </div>
       </div>
-      <div style="min-height: 2px; background-color: darkgray; margin-bottom: 10px;   margin-left: 50px;    margin-right: 50px;"></div>
-      <div><span>Jane Smith, Chief Nursing Officer</span><span style="float: right;">913-234-5678</span></div>
-      <div><span>Jane Smith, Chief Nursing Officer</span><span style="float: right;">913-234-5678</span></div>
-      <div><span>Jane Smith, Chief Nursing Officer</span><span style="float: right;">913-234-5678</span></div>
-      <div><span>Jane Smith, Chief Nursing Officer</span><span style="float: right;">913-234-5678</span></div>
 
     </div>
 
-  <div class="info-site info-group">
-
-    <div class="title" style="text-align: center;">
-      <div style="font-weight: bold;width: 100%;">Site Notes</div>
+    <div id="site-notepad">
+      <h4>Notepad</h4>
+      <textarea id="gutter-textarea">This is test content that is in the english language so that my browser doesn't think it's latin and tries to translate it. It's just annoying.</textarea><!-- AutoSave -->
     </div>
 
-    <div><span>Jane Smith, Chief Nursing Officer</span><span style="float: right;">913-234-5678</span></div>
-    <div><span>Jane Smith, Chief Nursing Officer</span><span style="float: right;">913-234-5678</span></div>
-    <div><span>Jane Smith, Chief Nursing Officer</span><span style="float: right;">913-234-5678</span></div>
-    <div><span>Jane Smith, Chief Nursing Officer</span><span style="float: right;">913-234-5678</span></div>
 
 
-  </div>
-
-  <div class="info-active info-group">
-    <div class="title" style="text-align: center;">
-      <div style="font-weight: bold;width: 100%;">Active Providers </div>
-
+    <div id="site-providers">
+      <h4>Recent Providers</h4>
+      <div class="contact-wrapper">
+        <div class="contact">
+          <div><a href="#">Jane Smith, MD</a></div><div>1/2/17</div>
+        </div>
+        <div class="contact">
+          <div><a href="#">Jane Smith, MD</a></div><div>1/2/17</div>
+        </div>
+        <div class="contact">
+          <div><a href="#">Jane Smith, MD</a></div><div>1/1/17</div>
+        </div>
+        <div class="contact">
+          <div><a href="#">Jane Smith, MD</a></div><div>12/25/16</div>
+        </div>
+        <div class="contact">
+          <div><a href="#">Jane Smith, MD</a></div><div>1/2/17</div>
+        </div>
+        <div class="contact">
+          <div><a href="#">Jane Smith, MD</a></div><div>1/2/17</div>
+        </div>
+        <div class="contact">
+          <div><a href="#">Jane Smith, MD</a></div><div>1/1/17</div>
+        </div>
+        <div class="contact">
+          <div><a href="#">Jane Smith, MD</a></div><div>12/25/16</div>
+        </div>
+        <div class="contact">
+          <div><a href="#">Jane Smith, MD</a></div><div>1/2/17</div>
+        </div>
+        <div class="contact">
+          <div><a href="#">Jane Smith, MD</a></div><div>1/2/17</div>
+        </div>
+        <div class="contact">
+          <div><a href="#">Jane Smith, MD</a></div><div>1/1/17</div>
+        </div>
+        <div class="contact">
+          <div><a href="#">Jane Smith, MD</a></div><div>12/25/16</div>
+        </div>
+      </div>
     </div>
 
-    <div><span>Jane Smith, Chief Nursing Officer</span><span style="float: right;">913-234-5678</span></div>
-    <div><span>Jane Smith, Chief Nursing Officer</span><span style="float: right;">913-234-5678</span></div>
-    <div><span>Jane Smith, Chief Nursing Officer</span><span style="float: right;">913-234-5678</span></div>
-    <div><span>Jane Smith, Chief Nursing Officer</span><span style="float: right;">913-234-5678</span></div>
   </div>
 </div>
 
@@ -47,36 +121,68 @@
 </div>
 
 <div class="col-md-2">
-  <div class="info-note info-group">
-    <div><span style="font-weight: bold;">1/13/17</span><span style="float: right;">12/8/16 - JS</span></div>
-    <div>Lorem ipsum dolor sit amet, consectetur ajiplclsd</div>
-
+  <div class="gutter">
+    <div id="shift-notes">
+      <div class="draggable ui-draggable ui-draggable-handle">
+        <span class="glyphicon glyphicon-remove-circle"></span>
+        <div class="shift-note-date">12/14/17 | 12a-12p</div>
+        <div class="shift-note-author">JS</div>
+        <div class="shift-note">This is test content that is in the english language so that my browser doesn't think it's latin and tries to translate it. It's just annoying.</div>
+      </div>
+      <div class="draggable ui-draggable ui-draggable-handle">
+        <span class="glyphicon glyphicon-remove-circle"></span>
+        <div class="shift-note-date">12/14/17 | 12a-12p</div>
+        <div class="shift-note-author">JS</div>
+        <div class="shift-note">This is test content that is in the english language so that my browser doesn't think it's latin and tries to translate it. It's just annoying.</div>
+      </div>
+      <div class="draggable ui-draggable ui-draggable-handle">
+        <span class="glyphicon glyphicon-remove-circle"></span>
+        <div class="shift-note-date">12/14/17 | 12a-12p</div>
+        <div class="shift-note-author">JS</div>
+        <div class="shift-note">This is test content that is in the english language so that my browser doesn't think it's latin and tries to translate it. It's just annoying.</div>
+      </div>
+      <div class="draggable ui-draggable ui-draggable-handle">
+        <span class="glyphicon glyphicon-remove-circle"></span>
+        <div class="shift-note-date">12/14/17 | 12a-12p</div>
+        <div class="shift-note-author">JS</div>
+        <div class="shift-note">This is test content that is in the english language so that my browser doesn't think it's latin and tries to translate it. It's just annoying.</div>
+      </div>
+      <div class="draggable ui-draggable ui-draggable-handle">
+        <span class="glyphicon glyphicon-remove-circle"></span>
+        <div class="shift-note-date">12/14/17 | 12a-12p</div>
+        <div class="shift-note-author">JS</div>
+        <div class="shift-note">This is test content that is in the english language so that my browser doesn't think it's latin and tries to translate it. It's just annoying.</div>
+      </div>
+      <div class="draggable ui-draggable ui-draggable-handle">
+        <span class="glyphicon glyphicon-remove-circle"></span>
+        <div class="shift-note-date">12/14/17 | 12a-12p</div>
+        <div class="shift-note-author">JS</div>
+        <div class="shift-note">This is test content that is in the english language so that my browser doesn't think it's latin and tries to translate it. It's just annoying.</div>
+      </div>
+      <div class="draggable ui-draggable ui-draggable-handle">
+        <span class="glyphicon glyphicon-remove-circle"></span>
+        <div class="shift-note-date">12/14/17 | 12a-12p</div>
+        <div class="shift-note-author">JS</div>
+        <div class="shift-note">This is test content that is in the english language so that my browser doesn't think it's latin and tries to translate it. It's just annoying.</div>
+      </div>
+      <div class="draggable ui-draggable ui-draggable-handle">
+        <span class="glyphicon glyphicon-remove-circle"></span>
+        <div class="shift-note-date">12/14/17 | 12a-12p</div>
+        <div class="shift-note-author">JS</div>
+        <div class="shift-note">This is test content that is in the english language so that my browser doesn't think it's latin and tries to translate it. It's just annoying.</div>
+      </div>
+    </div>
   </div>
-  <div class="info-note info-group">
-    <div><span style="font-weight: bold;">1/13/17</span><span style="float: right;">12/8/16 - JS</span></div>
-    <div>Lorem ipsum dolor sit amet, consectetur ajiplclsd</div>
-  </div>
-  <div class="info-note info-group">
-    <div><span style="font-weight: bold;">1/13/17</span><span style="float: right;">12/8/16 - JS</span></div>
-    <div>Lorem ipsum dolor sit amet, consectetur ajiplclsd</div>
-  </div>
-  <div class="info-note info-group">
-    <div><span style="font-weight: bold;">1/13/17</span><span style="float: right;">12/8/16 - JS</span></div>
-    <div>Lorem ipsum dolor sit amet, consectetur ajiplclsd</div>
-  </div>
-  <div class="info-note info-group">
-    <div><span style="font-weight: bold;">1/13/17</span><span style="float: right;">12/8/16 - JS</span></div>
-    <div>Lorem ipsum dolor sit amet, consectetur ajiplclsd</div>
-  </div>
-  <div class="info-note info-group">
-    <div><span style="font-weight: bold;">1/13/17</span><span style="float: right;">12/8/16 - JS</span></div>
-    <div>Lorem ipsum dolor sit amet, consectetur ajiplclsd</div>
-  </div>
-  <div class="info-note info-group">
-    <div><span style="font-weight: bold;">1/13/17</span><span style="float: right;">12/8/16 - JS</span></div>
-    <div>Lorem ipsum dolor sit amet, consectetur ajiplclsd</div>
-  </div>
-
+</div>
 </div>
 
-</div>
+
+
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $("#button-4-schedule").click(function(){
+            $(".heading").fadeToggle();
+        });
+    });
+</script>
