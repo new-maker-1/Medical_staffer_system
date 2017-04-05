@@ -4,11 +4,15 @@ class ProvidersController < ApplicationController
   # GET /providers
   def index
     @providers=Provider.all
-
     if params[:search]
       @providers = Provider.search(params[:search]).order("created_at DESC")
     else
       @providers=Provider.all.order("created_at DESC")
+    end
+
+    @representation = params[:representation]
+    if( @representation != nil)
+      @addcolumns = @representation.split(",")
     end
 
     respond_to do |format|
@@ -19,8 +23,19 @@ class ProvidersController < ApplicationController
     end
   end
 
+
+
+  def export
+    @data = Provider.order(:created_at)
+    respond_to do |format|
+      format.html{redirect_to root_url}
+      format.csv {send_data @data.to_csv}
+    end
+  end
+
   # GET /providers/1
   def show
+    @version = PaperTrail::Version.where(:item_type=>"Provider").where(:item_id=>@provider.id).last
   end
 
   def import
@@ -48,9 +63,7 @@ class ProvidersController < ApplicationController
     if @provider.save
       @user = User.new(:email =>@provider.email, :password => "111111", :password_confirmation => "111111")
       @user.save
-      flash[:success] = "Provider was successfully created.  #{make_undo_link}"
-      redirect_to provider_path(@provider)
-      #redirect_to @provider, notice: 'Provider was successfully created.'
+      redirect_to @provider, notice: 'Provider was successfully created.'
     else
       render :new
     end
@@ -82,9 +95,7 @@ class ProvidersController < ApplicationController
   def update
     @provider=Provider.find_by_id(params[:id])
     if @provider.update(provider_params)
-      flash[:success] = "Provider was successfully updated.  #{make_undo_link}"
-      redirect_to provider_path(@provider)
-      #redirect_to @provider, notice: 'Provider was successfully updated.'
+      redirect_to provider_url(@provider), notice: 'Provider was successfully updated.'#
     else
       render :edit
     end
@@ -93,9 +104,7 @@ class ProvidersController < ApplicationController
   # DELETE /providers/1
   def destroy
     @provider.destroy
-    flash[:success] = "Provider was successfully destroyed.  #{make_undo_link}"
-    redirect_to providers_url
-    #redirect_to providers_url, notice: 'Provider was successfully destroyed.'
+    redirect_to providers_url, notice: 'Provider was successfully destroyed.'
   end
 
   private

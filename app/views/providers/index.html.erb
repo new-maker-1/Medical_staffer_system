@@ -1,16 +1,14 @@
 <div class="container" style="margin-top: 20px;margin-bottom: 20px;">
     <div class="left">
         <%=form_tag(providers_path,:method=>"get",id:"search-form") do %>
-            <%=text_field_tag :search,params[:search], placeholder:"Search Site..." %>
+            <%=text_field_tag :search,params[:search], placeholder:"Search Provider..." ,:style=>"padding:3px;margin-right:0px;"%>
             <%= submit_tag 'SEARCH',:first_name=>nil,:class=>"btn btn-custom"%>
         <% end %>
     </div>
 
   <div class="right">
-    <%if current_user.try(:admin?)%>
-    <% end %>
-    <%= link_to 'ADD PROVIDER', new_provider_path, :class=>"btn btn-custom pull-right" , :style=>"margin-left:10px;"%>
-    <%= link_to 'FILTER', new_provider_path, :class=>"btn btn-custom pull-right" , :style=>"margin-left:10px;"%>
+    <%= link_to 'NEW PROVIDER', new_provider_path, :class=>"btn btn-custom pull-right" , :style=>"margin-left:10px;"%>
+
   </div>
 
 </div>
@@ -44,23 +42,10 @@
                 <td><%= provider.email %></td>
                 <td><%= provider.phone_number %></td>
 
-                <%if current_user.try(:admin?)%>
-                    <td><%= link_to 'Show', provider %></td>
-                    <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-                    <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                <% end %>
 
-                <%if current_user.try(:vip?)%>
-                    <td><%= link_to 'Show', provider %></td>
-                    <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-                    <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                <% end %>
-
-                <%if current_user.try(:user?)%>
-                    <td><%= link_to 'Show', provider %></td>
-                    <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-                    <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                <% end %>
+                <td><%= link_to 'Show', provider %></td>
+                <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
+                <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
           <% end %>
           </tbody>

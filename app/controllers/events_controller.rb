@@ -3,6 +3,18 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.where(start: params[:start]..params[:end])
+    @events_xlsx=Event.all
+    @representation = params[:representation]
+    if( @representation != nil)
+      @addcolumns = @representation.split(",")
+    end
+
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = 'attachment; filename="all_shifts.xlsx"'
+      }
+    end
   end
 
   def show

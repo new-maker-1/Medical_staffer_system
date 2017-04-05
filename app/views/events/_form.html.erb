@@ -4,8 +4,8 @@
       <%= f.input :title %>
     </div>
     <div class="form-group">
-      <div class="col-md-6"><%= f.input :provider_id,collection: Provider.all,prompt: :last_name%></div>
-      <div  class="col-md-6"><%= f.input :site_id,collection: Site.all,prompt: :hospital_name %></div>
+      <div class="col-md-6"><%= f.collection_select :provider_id,Provider.all,:id, :last_name,:class=>"event-provider"%></div>
+      <div  class="col-md-6"><%= f.collection_select :site_id, Site.all,:id,:hospital_name,:class=>"event-site" %></div>
     </div>
 
     <div class="form-group">
