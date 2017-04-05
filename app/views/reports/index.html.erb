@@ -34,7 +34,6 @@
         <td><%= report.typed %></td>
         <td>
           <% if report.module=="Provider" %>
-<<<<<<< HEAD
               <%=link_to "XLSX DOWNLOAD" ,providers_path(format: :xlsx,representation: report.representation)%>
           <% end %>
 
@@ -44,17 +43,6 @@
 
           <% if report.module=="Shift" %>
               <%=link_to "XLSX DOWNLOAD" ,events_path(format: :xlsx,representation: report.representation)%>
-=======
-             <%=link_to "XLSX DOWNLOAD" ,providers_path(format: :xlsx),params[:id]%>
-          <% end %>
-
-          <% if report.module=="Site" %>
-              <%=link_to "XLSX DOWNLOAD" ,sites_path(format: :xlsx)%>
-          <% end %>
-
-          <% if report.module=="Shift" %>
-              <%=link_to "XLSX DOWNLOAD" ,shifts_path(format: :xlsx)%>
->>>>>>> f31b97edc9bdb80d48f42c8d1e21c8095c24c9c0
           <% end %>
         </td>
       </tr>
@@ -65,7 +53,6 @@
 </div>
 </div>
 
-<<<<<<< HEAD
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function(){
         $("#button-add-column").click(function(){
@@ -75,5 +62,3 @@
     });
 </script>
 
-=======
->>>>>>> f31b97edc9bdb80d48f42c8d1e21c8095c24c9c0
