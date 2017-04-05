@@ -50,9 +50,7 @@ class SitesController < ApplicationController
     @site = Site.new(site_params)
 
     if @site.save
-      flash[:success] = "Site was successfully created.  #{make_undo_link}"
-      redirect_to site_path(@site)
-      #redirect_to @site, notice: 'Site was successfully created.'
+      redirect_to @site, notice: 'Site was successfully created.'
     else
       render :new
     end
