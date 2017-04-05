@@ -32,7 +32,7 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     if @document.save
-      redirect_to document_path(@document), notice: 'Provider was successfully created.'
+      redirect_to @document, notice: 'Document was successfully created.'
     else
       render :new
     end
@@ -44,7 +44,7 @@ class DocumentsController < ApplicationController
 
     @document=Document.find_by_id(params[:id])
     if @document.update(document_params)
-      redirect_to document_path(@document), notice: 'Provider was successfully updated.'
+      redirect_to @document, notice: 'Document was successfully updated.'
     else
       render :edit
     end
@@ -75,8 +75,7 @@ class DocumentsController < ApplicationController
   # DELETE /documents/1.json
   def destroy
     @document.destroy
-    flash[:success] = "Document was successfully destroyed.  #{make_undo_link}"
-    redirect_to documents_url
+    redirect_to documents_url, notice: 'Document was successfully destroyed.'
   end
 
   private
