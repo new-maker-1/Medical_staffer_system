@@ -250,7 +250,11 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.7)
+<<<<<<< HEAD
     tinymce-rails (4.5.6)
+=======
+    tinymce-rails (4.5.5)
+>>>>>>> f31b97edc9bdb80d48f42c8d1e21c8095c24c9c0
       railties (>= 3.1.1)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
@@ -259,7 +263,11 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2017.2)
       tzinfo (>= 1.0.0)
+<<<<<<< HEAD
     uglifier (3.1.13)
+=======
+    uglifier (3.1.10)
+>>>>>>> f31b97edc9bdb80d48f42c8d1e21c8095c24c9c0
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)

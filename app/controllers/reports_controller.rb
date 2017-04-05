@@ -36,7 +36,13 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
 
     if @report.save
+<<<<<<< HEAD
       redirect_to @provider, notice: 'Provider was successfully created.'
+=======
+      flash[:success] = "Report was successfully created."
+      redirect_to report_path(@report)
+      #redirect_to @provider, notice: 'Provider was successfully created.'
+>>>>>>> f31b97edc9bdb80d48f42c8d1e21c8095c24c9c0
     else
       render :new
     end
@@ -48,7 +54,13 @@ class ReportsController < ApplicationController
 
       @report=Report.find_by_id(params[:id])
       if @report.update(report_params)
+<<<<<<< HEAD
         redirect_to @provider, notice: 'Provider was successfully updated.'
+=======
+        flash[:success] = "Report was successfully updated."
+        redirect_to report_path(@report)
+        #redirect_to @provider, notice: 'Provider was successfully updated.'
+>>>>>>> f31b97edc9bdb80d48f42c8d1e21c8095c24c9c0
       else
         render :edit
       end
@@ -79,7 +91,13 @@ class ReportsController < ApplicationController
   # DELETE /reports/1.json
   def destroy
     @report.destroy
+<<<<<<< HEAD
     redirect_to providers_url, notice: 'Provider was successfully destroyed.'
+=======
+    flash[:success] = "Report was successfully destroyed."
+    redirect_to reports_url
+    #redirect_to providers_url, notice: 'Provider was successfully destroyed.'
+>>>>>>> f31b97edc9bdb80d48f42c8d1e21c8095c24c9c0
   end
 
 
