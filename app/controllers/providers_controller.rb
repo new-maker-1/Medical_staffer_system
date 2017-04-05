@@ -4,32 +4,17 @@ class ProvidersController < ApplicationController
   # GET /providers
   def index
     @providers=Provider.all
-<<<<<<< HEAD
-=======
-    @arrayList=Array.new;
->>>>>>> f31b97edc9bdb80d48f42c8d1e21c8095c24c9c0
     if params[:search]
       @providers = Provider.search(params[:search]).order("created_at DESC")
     else
       @providers=Provider.all.order("created_at DESC")
     end
 
-<<<<<<< HEAD
     @representation = params[:representation]
     if( @representation != nil)
       @addcolumns = @representation.split(",")
     end
 
-=======
-    puts "jhfdjffdfsdf"
-    #@report = Report.find_by_id(params[:id])
-
-    puts "jhfdjffdfsdf"
-    #@addcolumns = @report.module.split(",")
-    puts "kdsjfkdjflkdf"
-    #puts @addcolumns
-    @addcolumns=["last_name","first_name"]
->>>>>>> f31b97edc9bdb80d48f42c8d1e21c8095c24c9c0
     respond_to do |format|
       format.html
       format.xlsx {
@@ -50,11 +35,7 @@ class ProvidersController < ApplicationController
 
   # GET /providers/1
   def show
-<<<<<<< HEAD
     @version = PaperTrail::Version.where(:item_type=>"Provider").where(:item_id=>@provider.id).last
-=======
-    @version = PaperTrail::Version.order('created_at ASC').last
->>>>>>> f31b97edc9bdb80d48f42c8d1e21c8095c24c9c0
   end
 
   def import
