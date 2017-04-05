@@ -22,15 +22,4 @@ class Provider < ActiveRecord::Base
       end # end if !product.nil?
     end # end CSV.foreach
   end # end self.import(file)
-
-
-  def self.to_csv(options={})
-    CSV.generate(options) do |csv|
-      csv.add_row column_names
-      all.each do |provider|
-        values=provider.attributes.values
-        csv.add_row values
-      end
-    end
-  end
 end

@@ -57,7 +57,6 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-
 production:
   <<: *default
   host: ec2-107-20-163-238.compute-1.amazonaws.com
