@@ -1,2 +1,0 @@
-class Modeltable < ApplicationRecord
-end

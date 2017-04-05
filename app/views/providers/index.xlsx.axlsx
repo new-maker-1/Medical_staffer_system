@@ -3,17 +3,8 @@ wb.styles do |style|
   highlight_cell = style.add_style(bg_color: "EFC376", border: Axlsx::STYLE_THIN_BORDER, alignment: { horizontal: :center })
 
   wb.add_worksheet(name: "Providers") do |sheet|
-    sheet.add_row   @addcolumns
     @providers.each do |product|
-<<<<<<< HEAD
-        columns = []
-        @addcolumns.each do |addcol|
-            columns.push product[addcol]
-        end
-        sheet.add_row columns, style: [nil, highlight_cell]
-=======
-        sheet.add_row [product.first_name,product.last_name], style: [nil, highlight_cell]
->>>>>>> f31b97edc9bdb80d48f42c8d1e21c8095c24c9c0
+        sheet.add_row [product.first_name, product.email], style: [nil, highlight_cell]
         sheet.rows.last.cells.first.u = :single
 
         sheet.add_hyperlink location: url_for(action: "show", id: product.id, only_path: false),    ref: sheet.rows.last.cells.first

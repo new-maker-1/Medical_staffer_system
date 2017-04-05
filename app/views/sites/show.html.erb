@@ -1,18 +1,7 @@
- <div class="container" style="    margin-top: 15px;">
-    <div class="breadcrumbs">Sites &gt; Filter &gt; <%= @site.hospital_name %> , <%= @site.id %></div>
-    <div class="paper-trail">Last Modified by
-      <% if @version.whodunnit && @version.whodunnit != 'Guest' %>
-          <% user = User.find_by_id(@version.whodunnit) %>
-          <% if user %>
-              <%= user.name %>
-          <% end %>
-      <% else %>
-          Guest
-      <% end %>
-      on <%= l(@version.created_at, format: "%-d.%m.%Y %H:%M:%S %Z") %></div>
-  </div>
+<div class="container" style="    margin-top: 15px;">
+  <div class="breadcrumbs">Sites &gt; Filter &gt;<%= @site.hospital_name %></div>
+  <div class="paper-trail">Last Modified by Michael Moore on 3/15/16</div>
 </div>
-
 
 <div class="container">
   <div class="page-header form-group" style="margin-top: 10px;">

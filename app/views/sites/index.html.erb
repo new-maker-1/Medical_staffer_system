@@ -2,12 +2,15 @@
   <div class="container" style="margin-top: 20px;margin-bottom: 20px;">
     <div class="left">
       <%= form_tag(sites_path, :method => "get", id: "search-form") do %>
-          <%=text_field_tag :search,params[:search], placeholder: "Search Site..." ,:style=>"padding:3px;margin-right:1px;"%>
+          <%=text_field_tag :search,params[:search], placeholder: "Search Site..." %>
           <%= submit_tag 'SEARCH',:hospital_name=>nil,:class=>"btn btn-custom"%>
       <% end %>
     </div>
     <div class="right">
-      <%= link_to 'NEW SITE', new_site_path, :class=>"btn btn-custom pull-right" , :style=>"margin-left:10px;"%>
+      <%if current_user.try(:admin?)%>
+      <% end %>
+      <%= link_to 'FILTER', new_site_path, :class=>"btn btn-custom pull-right" , :style=>"margin-left:10px;"%>
+      <%= link_to 'ADD SITE', new_site_path, :class=>"btn btn-custom pull-right" , :style=>"margin-left:10px;"%>
     </div>
   </div>
   <div class="container">
@@ -32,9 +35,23 @@
         <td><%= site.status_options %></td>
         <td><%= site.address %></td>
         <td><%= site.phone_number %></td>
-        <td><%= link_to 'Show', site %></td>
-        <td><%= link_to 'Edit', edit_site_path(site) %></td>
-        <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%if current_user.try(:admin?)%>
+            <td><%= link_to 'Show', site %></td>
+            <td><%= link_to 'Edit', edit_site_path(site) %></td>
+            <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
+        <%if current_user.try(:vip?)%>
+            <td><%= link_to 'Show', site %></td>
+            <td><%= link_to 'Edit', edit_site_path(site) %></td>
+            <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
+        <%if current_user.try(:user?)%>
+            <td><%= link_to 'Show', site %></td>
+            <td><%= link_to 'Edit', edit_site_path(site) %></td>
+            <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

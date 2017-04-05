@@ -18,6 +18,4 @@
 //= require moment
 //= require fullcalendar
 //= require daterangepicker
-//= require tinymce
-//= require tinymce-jquery
 //= require_tree .
