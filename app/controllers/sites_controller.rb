@@ -9,6 +9,12 @@ class SitesController < ApplicationController
     else
       @sites=Site.all.order("created_at DESC")
     end
+
+    @representation = params[:representation]
+    if( @representation != nil)
+      @addcolumns = @representation.split(",")
+    end
+
     respond_to do |format|
       format.html
       format.xlsx {
@@ -19,6 +25,7 @@ class SitesController < ApplicationController
 
   # GET /sites/1
   def show
+    @version = PaperTrail::Version.where(:item_type=>"Provider").where(:item_id=>@site.id).last
   end
 
   # GET /sites/new
@@ -55,9 +62,7 @@ class SitesController < ApplicationController
   def update
     @site=Site.find_by_id(params[:id])
     if @site.update(site_params)
-      flash[:success] = "Site was successfully updated.  #{make_undo_link}"
-      redirect_to site_path(@site)
-      #redirect_to @site, notice: 'Site was successfully updated.'
+      redirect_to @site, notice: 'Site was successfully updated.'
     else
       render :edit
     end

@@ -1,0 +1,281 @@
+<div class="container">
+  <div class="form-group">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag :application %>
+    <%= link_to 'Back', reports_path, :class=>"btn btn-custom pull-right" %>
+    <h3>New Report</h3>
+  </div>
+
+
+
+  <div>
+    <div class=" page-header form-group">
+      <span><h4>1.Module Information</h4></span>
+    </div>
+  </div>
+
+  <div class="info-group" id="div-1">
+    <div class=" form-group">
+      <span>Select Module</span>
+    </div>
+    <div class="form-group">
+
+      <%= select_tag  :select_name ,options_for_select(@modeltable.collect{|u|[u.name,u.id]}),:class=>"form-control" %>
+
+
+      </div>
+    <div class="form-group">
+        <button class="btn btn-primary" id="btn-continue-1" value="Continue">Continue</button>
+        <button class="btn btn-default btn-cancel"    value="Cancel">Cancel</button>
+      </div>
+    </div>
+
+
+<div id="div-2" style="display:none">
+  <div>
+    <div class=" page-header form-group">
+      <span><h4>2.Report Type</h4></span>
+    </div>
+  </div>
+
+  <div class="info-group" >
+    <div class=" form-group">
+      <input type="radio" value="tabular">Tabular Report</input>
+    </div>
+
+    <div class="form-group reportImage cB">
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary" id="btn-continue-2" value="Continue">Continue</button>
+      <button class="btn btn-default btn-cancel"    value="Cancel">Cancel</button>
+
+    </div>
+    <div class="form-group">
+      <p>Tabular reports provide you the way to list your data in a simpler form.</p>
+    </div>
+  </div>
+</div>
+
+
+
+  <div id="div-3" style="display:none">
+    <div>
+      <div class=" page-header form-group">
+        <span><h4>3.Report Represention</h4></span>
+      </div>
+    </div>
+
+    <div class="info-group" >
+      <div class=" form-group">
+       <table border="0" align="center" cellpadding="0" cellspacing="2">
+         <tbody>
+            <tr>
+              <td>Available Columns</td>
+              <td>&nbsp;</td>
+              <td>Selected Columns</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>
+
+                <select  id="availList_site" name="availList_site" multiple="" class="select" style="width:200px;height:300px;max-height:300px;overflow: auto;">
+                  <optgroup  label="Site" class="select" style="border:none;" id="available-title-id-3">
+
+                      <% Site.column_names.each do |column_name| %>
+                          <option><%= column_name %></option>
+                      <% end %>
+
+               </optgroup></select>
+                <select  id="availList_shift" name="availList_shift" multiple="" class="select" style="width:200px;height:300px;max-height:300px;overflow: auto;">
+                  <optgroup label="Shift" class="select" style="border:none;" id="available-title-id-1">
+
+<<<<<<< HEAD
+                     <% Event.column_names.each do |column_name| %>
+=======
+                     <% Shift.column_names.each do |column_name| %>
+>>>>>>> f31b97edc9bdb80d48f42c8d1e21c8095c24c9c0
+                          <option><%= column_name %></option>
+                      <% end %>
+
+                </optgroup></select>
+                <select id="availList_provider" name="availList_provider" multiple="" class="select" style="width:200px;height:300px;max-height:300px;overflow: auto;">
+                  <optgroup label="Provider" class="select" style="border:none;" id="available-title-id-2">
+
+                  <% Provider.column_names.each do |column_name| %>
+                      <option><%= column_name %></option>
+                  <% end %>
+
+                </optgroup></select>
+
+
+              </td>
+              <td> <table border="0" align="center" cellpadding="0" cellspacing="5">
+                <tbody>
+                    <tr>
+                        <td>
+                          <div align="center">
+                            <input type="button" name="Button" value="Add" class="primarybtn btn btn-primary" data-zcqa="repAddColumns" id="button-add-column">
+                          </div>
+                        </td>
+                    </tr>
+                </tbody>
+              </table>
+              </td>
+              <td> <select id="selectedColumns" name="selectedColumns" multiple="" class="select" style="width:200px;height:300px" onchange="crmReports.disableMove()">
+              </select></td>
+            </tr>
+         </tbody>
+       </table>
+      </div>
+    <div class="form-group">
+
+      <div class="form-group">
+        <button class="btn btn-primary" id="btn-continue-3" value="Continue">Continue</button>
+        <button class="btn btn-default btn-cancel"    value="Cancel">Cancel</button>
+
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+
+<div id="div-4" style="display:none;">
+  <div>
+    <div class=" page-header form-group">
+      <span><h4>4.Basic Information</h4></span>
+    </div>
+  </div>
+
+
+    <div class="form-group">
+      <%= render 'form',report:@report %>
+    </div>
+
+</div>
+
+
+
+
+
+</div>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $(".btn-cancel").click(function(){
+            window.location.replace('/reports');
+        });
+    });
+</script>
+
+
+
+
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        var arrayTemp=new Array();
+        $("#button-add-column").click(function(){
+            var type = $("#select_name").val();
+            if(type == '1'){
+                var selectedText=$("#availList_shift").val();
+                $("#selectedColumns").append("<option>"+selectedText+"</option>");
+                arrayTemp.push(selectedText);
+
+
+            }else if(type=='2'){
+                var selectedText=$("#availList_provider").val();
+                $("#selectedColumns").append("<option>"+selectedText+"</option>");
+                arrayTemp.push(selectedText);
+
+            }else{
+                var selectedText=$("#availList_site").val();
+                $("#selectedColumns").append("<option>"+selectedText+"</option>");
+                arrayTemp.push(selectedText);
+
+            }
+
+                console.log(arrayTemp);
+                $('#arraylist').val(arrayTemp);
+
+
+        });
+
+    });
+</script>
+
+<script type="text/javascript" charset="utf-8">
+            $(document).ready(function(){
+                $("#btn-continue-1").click(function(){
+                    var type=$("#select_name").val();
+                    if(type==1){
+                        $("#module-field-id").val('Shift');
+                    }else if(type==2){
+                        $("#module-field-id").val('Provider');
+                    }else{
+                        $("#module-field-id").val('Site');
+                    }
+                    $("#div-2").fadeIn();
+                });
+            });
+</script>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $("#btn-continue-3").click(function(){
+            $("#div-4").fadeIn();
+        });
+    });
+</script>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $("#btn-continue-2" +
+                "").click(function(){
+
+
+            var type = $("#select_name").val();
+            if(type == '1'){
+                $('#availList_shift').show();
+                $('#availList_provider').hide();
+                $('#availList_site').hide();
+
+
+            }else if(type=='2'){
+                $('#availList_provider').show();
+                $('#availList_site').hide();
+                $('#availList_shift').hide();
+                $('#provider-report-1').show();
+                $('#site-report-1').hide();
+            }else{
+                $('#availList_site').show();
+                $('#availList_provider').hide();
+                $('#availList_shift').hide();
+                $('#site-report-1').show();
+                $('#provider-report-1').hide();
+            }
+
+
+            $("#div-3").fadeIn();
+        });
+    });
+</script>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $("#btn-continue-3" +
+                "").click(function(){
+            var representationArray = $('#arraylist').val();
+            $('#representation-field-id').val(representationArray);
+            $("#div-3").fadeIn();
+        });
+    });
+</script>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $("#btn-run-1" + "").click(function(){
+            $("#div-3").fadeIn();
+        });
+    });
+</script>
