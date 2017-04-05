@@ -36,7 +36,7 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
 
     if @report.save
-      redirect_to @provider, notice: 'Provider was successfully created.'
+      redirect_to @report, notice: 'Provider was successfully created.'
     else
       render :new
     end
@@ -48,7 +48,7 @@ class ReportsController < ApplicationController
 
       @report=Report.find_by_id(params[:id])
       if @report.update(report_params)
-        redirect_to @provider, notice: 'Provider was successfully updated.'
+        redirect_to @report, notice: 'Provider was successfully updated.'
       else
         render :edit
       end
@@ -79,7 +79,7 @@ class ReportsController < ApplicationController
   # DELETE /reports/1.json
   def destroy
     @report.destroy
-    redirect_to providers_url, notice: 'Provider was successfully destroyed.'
+    redirect_to reports_url, notice: 'Provider was successfully destroyed.'
   end
 
 
